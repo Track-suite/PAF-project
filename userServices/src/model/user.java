@@ -41,7 +41,7 @@ public class user {
 	 while (rs.next())
 	 {
 	 String buyerID = Integer.toString(rs.getInt("userID"));
-	 String buyerCode = rs.getNString("userCode");
+	 String buyerCode = rs.getString("userCode");
 	 String userName = rs.getString("userName");
 	 String password = rs.getString("password");
 	 String email = rs.getString("email");
@@ -177,33 +177,22 @@ public class user {
 	 
 	 // create a prepared statement
 	 if (type.equals("buyer") || type.equals("Buyer")) {
+		 	 
 		 
-		 //Preparing a CallableStatement to call a function
-		 CallableStatement cstmt = con.prepareCall("{? = call getbuyerID()}");
-		 
-		 //Registering the out parameter of the function (return type)
-		 cstmt.registerOutParameter(1, Types.CHAR);
-		
-		 //Executing the statement
-		 cstmt.execute();
-		 String conceptCode = cstmt.getString(1);
-		 
-		 
-		 
-		 
-	 String query = " insert into user.buyer(`userID`,`userCode`,`userName`,`password`,`email`,`address`,`dob`,`phone`)"
+	 String query = " insert into user.buyer (`userID`,`userCode`,`userName`,`password`,`email`,`address`,`dob`,`phone`)"
 	 + " values (?, ?, ?, ?, ?, ?, ?, ?)";
 	 
 	 PreparedStatement preparedStmt = con.prepareStatement(query);
 	 // binding values
 	 preparedStmt.setInt(1, 0);
-	 preparedStmt.setString(2, conceptCode);
+	 preparedStmt.setString(2, usercode);
 	 preparedStmt.setString(3, username);
 	 preparedStmt.setString(4, password);
 	 preparedStmt.setString(5, email);
 	 preparedStmt.setString(6, address);
 	 preparedStmt.setString(7, dob);
 	 preparedStmt.setString(8, phone);
+	// preparedStmt.setString(9, desc);
 	// execute the statement
 	
 	 preparedStmt.execute();
