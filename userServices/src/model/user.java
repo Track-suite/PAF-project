@@ -205,7 +205,7 @@ public class user {
 		 
 		 
 		
-		 
+		 //query for inserting
 		 String query = " insert into user.developer(`developerID`,`developerCode`,`userName`,`password`,`email`,`address`,`dob`,`phone`,`desc`)"
 				 + " values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 				 
@@ -231,7 +231,7 @@ if (type.equals("Investor") || type.equals("investor")) {
 	
 	
 	;
-		 
+		 //query for inserting
 		 String query = " insert into user.investor(`investorID`,`investorCode` ,`userName`,`password`,`email`,`address`,`dob`,`phone`)"
 				 + " values (?, ?, ?, ?, ?, ?, ?, ?)";
 				 
