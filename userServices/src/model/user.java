@@ -432,7 +432,7 @@ if (type.equals("Investor") || type.equals("investor")) {
 				  
 				        if((username.equals(UserName)) ) {
 				        	
-				        	output ="     Login Successful  !!           You're result is "   +username;
+				        	output ="     Search Successful  !!           You're result is "   +username;
 				        	output += "<br><br><table border='1'><tr><th>User ID</th><th>User Code</th><th>User Name</th>" +"<th>Password</th>" +"<th> Gmail</th>" +"<th>Address</th>"+"<th>DOB</th>" + "<th>phone</th></tr>";
 				        	output += "<tr><td>" + userID + "</td>";
 				        	output += "<td>" + UserCode + "</td>";
