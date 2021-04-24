@@ -403,5 +403,144 @@ if (type.equals("Investor") || type.equals("investor")) {
 	 return output;
 	 }
 	 
+	//Search Method
+	
+	public String userSearch(String username,String type) {
+		String output = "";
+		try {
+			Connection con = connect();
+			if (con == null) {
+				return "Error while connecting to the database for reading.";
+			}
+		
+			if (type.equals("buyer") || type.equals("Buyer")) {
+				
+				String query ="select userID,userCode,userName,password,email,address,dob,phone from buyer where userName= '"+username+"'";
+				PreparedStatement preparedStmt = con.prepareStatement(query);
+				ResultSet rs = ((java.sql.Statement) preparedStmt).executeQuery(query);
+				
+				
+				  while (rs.next()) {
+					    String userID = Integer.toString(rs.getInt("userID"));
+					    String UserCode = rs.getString("userCode");
+				        String UserName = rs.getString("userName");
+				        String Password = rs.getString("password");
+				        String Email = rs.getString("email");
+				        String Address = rs.getString("address");
+				        String Dob =rs.getString("dob");
+				        String phone =rs.getString("phone");
+				  
+				        if((username.equals(UserName)) ) {
+				        	
+				        	output ="     Login Successful  !!           You're result is "   +username;
+				        	output += "<br><br><table border='1'><tr><th>User ID</th><th>User Code</th><th>User Name</th>" +"<th>Password</th>" +"<th> Gmail</th>" +"<th>Address</th>"+"<th>DOB</th>" + "<th>phone</th></tr>";
+				        	output += "<tr><td>" + userID + "</td>";
+				        	output += "<td>" + UserCode + "</td>";
+						   	output += "<td>" + UserName + "</td>";
+						   	output += "<td>" + Password + "</td>";
+						   	output += "<td>" + Email + "</td>";
+						   	output += "<td>" + Address + "</td>";
+							output += "<td>" + Dob + "</td>";
+						   	output += "<td>" + phone + "</td>";	
+				        
+				        }
+			              else {
+			                output ="      invalid input...!!";
+			              	} 
+				  	}
+				
+				con.close();
+				
+			}
+			if (type.equals("developer") || type.equals("Developer")) {
+				
+				String query ="select developerID,developerCode,userName,password,email,address,dob,phone,developer.desc from developer where userName= '"+username+"'";
+				PreparedStatement preparedStmt = con.prepareStatement(query);
+				ResultSet rs = ((java.sql.Statement) preparedStmt).executeQuery(query);
+				
+				
+				  while (rs.next()) {
+					    String userID = Integer.toString(rs.getInt("developerID"));
+					    String UserCode = rs.getString("developerCode");
+				        String UserName = rs.getString("userName");
+				        String Password = rs.getString("password");
+				        String Email = rs.getString("email");
+				        String Address = rs.getString("address");
+				        String Dob =rs.getString("dob");
+				        String phone =rs.getString("phone");
+				        String desc = rs.getString("desc");
+				        
+				  
+				        if((username.equals(UserName))) {
+				        	
+				        	output ="     search Successful  !!           You're result is "   +username;
+				        	output += "<br><br><table border='1'><tr><th>Developer ID</th><th>Developer Code</th><th>User Name</th>" +"<th>Password</th>" +"<th> Gmail</th>" +"<th>Address</th>"+"<th>DOB</th>" + "<th>phone</th>" + "<th>description</th></tr>";
+				        	output += "<tr><td>" + userID + "</td>";
+				        	output += "<td>" + UserCode + "</td>";
+						   	output += "<td>" + UserName + "</td>";
+						   	output += "<td>" + Password + "</td>";
+						   	output += "<td>" + Email + "</td>";
+						   	output += "<td>" + Address + "</td>";
+							output += "<td>" + Dob + "</td>";
+						   	output += "<td>" + phone + "</td>";	
+							output += "<td>" + desc + "</td>";	
+				        	}
+			              else {
+			                output ="      inavlid Input...!!";
+			            	 //output ="     Login Successful  !!           You're logged as"   +username;
+			              	} 
+				  	}
+				
+				con.close();
+			}
+			if (type.equals("investor") || type.equals("Investor")) {
+				
+				String query ="select investorID,investorCode,userName,password,email,address,dob,phone from investor where userName= '"+username+"'";
+				PreparedStatement preparedStmt = con.prepareStatement(query);
+				ResultSet rs = ((java.sql.Statement) preparedStmt).executeQuery(query);
+				
+				
+				  while (rs.next()) {
+					    String userID = Integer.toString(rs.getInt("investorID"));
+					    String UserCode = rs.getString("investorCode");
+				        String UserName = rs.getString("userName");
+				        String Password = rs.getString("password");
+				        String Email = rs.getString("email");
+				        String Address = rs.getString("address");
+				        String Dob =rs.getString("dob");
+				        String phone =rs.getString("phone");
+				        String profileInfo = rs.getString("profileInfo");
+				        
+				  
+				        if((username.equals(UserName))) {
+				        	
+				        	output ="     search Successful  !!           You're result is "   +username;
+				        	output += "<br><br><table border='1'><tr><th>Investor ID</th><th>Investor Code</th><th>User Name</th>" +"<th>Password</th>" +"<th> Gmail</th>" +"<th>Address</th>"+"<th>DOB</th>" + "<th>phone</th>" + "<th>profile Information</th></tr>";
+				        	output += "<tr><td>" + userID + "</td>";
+				          	output += "<td>" + UserCode + "</td>";
+						   	output += "<td>" + UserName + "</td>";
+						   	output += "<td>" + Password + "</td>";
+						   	output += "<td>" + Email + "</td>";
+						   	output += "<td>" + Address + "</td>";
+							output += "<td>" + Dob + "</td>";
+						   	output += "<td>" + phone + "</td>";	
+							output += "<td>" + profileInfo + "</td>";	
+				        	}
+			              else {
+			                output =" incorrect input...!!";
+			            	 
+			              	} 
+				  	}
+				
+				con.close();
+			}
+			
+		}catch (Exception e) {
+			output = "incorrect input.";
+			System.err.println(e.getMessage());
+		}
+		return output;
+	}
+	
 
 }

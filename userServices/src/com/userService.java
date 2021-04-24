@@ -105,5 +105,16 @@ public class userService {
 		//user details for selected user
 	}
 
+
+	@GET
+	@Path("/{username}/{type}")
+	@Produces(MediaType.TEXT_HTML)
+	public String userSearch (@PathParam("username")String username,@PathParam("type")String type) {
+		
+		String output = userObj.userSearch(username, type);
+		return output;
+		
+		//user details for selected user
+	}
 	
 }
