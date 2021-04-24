@@ -19,7 +19,7 @@ public class user {
 	 return con;
 	 }
 	
-	
+	//read user method
 	public String readUsers(String type)
 	 {
 	 String output = "";
