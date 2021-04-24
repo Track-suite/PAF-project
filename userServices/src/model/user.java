@@ -204,15 +204,7 @@ public class user {
 	 if (type.equals("developer") || type.equals("Developer")) {
 		 
 		 
-		//Preparing a CallableStatement to call a function
-		 CallableStatement cstmt = con.prepareCall("{? = call getdeveloperID()}");
-		 
-		 //Registering the out parameter of the function (return type)
-		 cstmt.registerOutParameter(1, Types.CHAR);
 		
-		 //Executing the statement
-		 cstmt.execute();
-		 String conceptCode = cstmt.getString(1);
 		 
 		 String query = " insert into user.developer(`developerID`,`developerCode`,`userName`,`password`,`email`,`address`,`dob`,`phone`,`desc`)"
 				 + " values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -220,7 +212,7 @@ public class user {
 				 PreparedStatement preparedStmt = con.prepareStatement(query);
 				 // binding values
 				 preparedStmt.setInt(1, 0);
-				 preparedStmt.setString(2, conceptCode);
+				 preparedStmt.setString(2, usercode);
 				 preparedStmt.setString(3, username);
 				 preparedStmt.setString(4, password);
 				 preparedStmt.setString(5, email);
@@ -238,23 +230,15 @@ public class user {
 if (type.equals("Investor") || type.equals("investor")) {
 	
 	
-	//Preparing a CallableStatement to call a function
-	 CallableStatement cstmt = con.prepareCall("{? = call getinvestorID()}");
-	 
-	 //Registering the out parameter of the function (return type)
-	 cstmt.registerOutParameter(1, Types.CHAR);
-	
-	 //Executing the statement
-	 cstmt.execute();
-	 String conceptCode = cstmt.getString(1);
+	;
 		 
 		 String query = " insert into user.investor(`investorID`,`investorCode` ,`userName`,`password`,`email`,`address`,`dob`,`phone`)"
-				 + " values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				 + " values (?, ?, ?, ?, ?, ?, ?, ?)";
 				 
 				 PreparedStatement preparedStmt = con.prepareStatement(query);
 				 // binding values
 				 preparedStmt.setInt(1, 0);
-				 preparedStmt.setString(2, conceptCode);
+				 preparedStmt.setString(2, usercode);
 				 preparedStmt.setString(3, username);
 				 preparedStmt.setString(4, password);
 				 preparedStmt.setString(5, email);
