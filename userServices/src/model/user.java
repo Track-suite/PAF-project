@@ -403,7 +403,6 @@ if (type.equals("Investor") || type.equals("investor")) {
 	 return output;
 	 }
 	 
-	//Search Method
 	
 	public String userSearch(String username,String type) {
 		String output = "";
@@ -432,7 +431,7 @@ if (type.equals("Investor") || type.equals("investor")) {
 				  
 				        if((username.equals(UserName)) ) {
 				        	
-				        	output ="     Search Successful  !!           You're result is "   +username;
+				        	output ="     Search Successful  !!           Detail of"   +username +"Dispalyed";
 				        	output += "<br><br><table border='1'><tr><th>User ID</th><th>User Code</th><th>User Name</th>" +"<th>Password</th>" +"<th> Gmail</th>" +"<th>Address</th>"+"<th>DOB</th>" + "<th>phone</th></tr>";
 				        	output += "<tr><td>" + userID + "</td>";
 				        	output += "<td>" + UserCode + "</td>";
@@ -473,7 +472,7 @@ if (type.equals("Investor") || type.equals("investor")) {
 				  
 				        if((username.equals(UserName))) {
 				        	
-				        	output ="     search Successful  !!           You're result is "   +username;
+				        	output ="     search Successful  !!           Detail of"   +username +"Dispalyed";
 				        	output += "<br><br><table border='1'><tr><th>Developer ID</th><th>Developer Code</th><th>User Name</th>" +"<th>Password</th>" +"<th> Gmail</th>" +"<th>Address</th>"+"<th>DOB</th>" + "<th>phone</th>" + "<th>description</th></tr>";
 				        	output += "<tr><td>" + userID + "</td>";
 				        	output += "<td>" + UserCode + "</td>";
@@ -514,7 +513,7 @@ if (type.equals("Investor") || type.equals("investor")) {
 				  
 				        if((username.equals(UserName))) {
 				        	
-				        	output ="     search Successful  !!           You're result is "   +username;
+				        	output ="     search Successful  !!            Detail of"   +username +"Dispalyed";
 				        	output += "<br><br><table border='1'><tr><th>Investor ID</th><th>Investor Code</th><th>User Name</th>" +"<th>Password</th>" +"<th> Gmail</th>" +"<th>Address</th>"+"<th>DOB</th>" + "<th>phone</th>" + "<th>profile Information</th></tr>";
 				        	output += "<tr><td>" + userID + "</td>";
 				          	output += "<td>" + UserCode + "</td>";
